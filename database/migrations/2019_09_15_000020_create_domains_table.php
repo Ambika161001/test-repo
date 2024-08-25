@@ -23,6 +23,22 @@ class CreateDomainsTable extends Migration
             $table->timestamps();
             $table->foreign('tenant_id')->references('id')->on('tenants')->onUpdate('cascade')->onDelete('cascade');
         });
+
+        // Insert initial data
+        DB::table('domains')->insert([
+            [
+                'domain' => 'test.localhost',
+                'tenant_id' => '1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'domain' => 'complete.localhost',
+                'tenant_id' => '2',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 
     /**
