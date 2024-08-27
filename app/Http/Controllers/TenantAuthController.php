@@ -39,10 +39,11 @@ class TenantAuthController extends Controller
 
     public function dashboard()
     {
+        $tenantId = app("tenant");
         $users = User::get();
         $userCount = $users->count();
 
-        return view('dashboard', compact('users', 'userCount'));
+        return view('dashboard', compact('users', 'userCount', 'tenantId'));
     }
 
 }

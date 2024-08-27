@@ -31,6 +31,6 @@ Route::middleware([
     // Ensure this route is correctly defined
     Route::get('/login', [TenantAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [TenantAuthController::class, 'login']);
-    Route::get('dashboard', [TenantAuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [TenantAuthController::class, 'dashboard'])->name('dashboard');
 
 });
